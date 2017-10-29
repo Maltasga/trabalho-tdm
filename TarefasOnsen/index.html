@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="onsen/css/onsenui.css">
+    <link rel="stylesheet" href="onsen/css/onsen-css-components.min.css">
+    <!-- <script src="onsen/js/onsenui.min.js"></script>
+    <script src="onsen/js/jquery.js"></script>
+    <script src="onsen/js/menu.js"></script> -->
+</head>
+
+<body>
+    <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+            <ons-page>
+                <ons-list>
+                    <ons-list-item onclick="fn.load('home.html')" tappable>
+                        Home
+                    </ons-list-item>
+                    <ons-list-item onclick="fn.load('add.html')" tappable>
+                        Adicionar itens
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+    </ons-splitter>
+
+    <template id="home.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Lista de compras
+                </div>
+            </ons-toolbar>
+            <!-- <ons-list id="lista">
+                <ons-list-item>Item A</ons-list-item>
+                <ons-list-item>Item B</ons-list-item>
+            </ons-list> -->
+
+            <ons-list-item>
+                <div class="left">
+                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
+                </div>
+                <div class="center">
+                    Icon
+                </div>
+            </ons-list-item>
+
+            <ons-fab position="bottom right" onclick="fn.load('add.html')">
+                <ons-icon icon="md-plus"></ons-icon>
+            </ons-fab>
+
+        </ons-page>
+    </template>
+
+    <template id="add.html">
+        <ons-page>
+            <ons-toolbar>
+                <div class="left">
+                    <ons-toolbar-button onclick="fn.open()">
+                        <ons-icon icon="md-menu"></ons-icon>
+                    </ons-toolbar-button>
+                </div>
+                <div class="center">
+                    Adicionar itens
+                </div>
+            </ons-toolbar>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p>
+                    <ons-input id="item" style="width:90%;"></ons-input>
+                </p>
+                <p style="margin-top: 30px;">
+                    <ons-button onclick="addItem()">Adicionar</ons-button>
+                </p>
+            </div>
+
+        </ons-page>
+    </template>
+    <!-- Scripts -->
+    <script src="onsen/js/onsenui.min.js"></script>
+    <script src="onsen/js/jquery.js"></script>
+    <script src="onsen/js/app.js"></script>
+</body>
+
+</html>
