@@ -12,13 +12,33 @@ window.fn.load = function (page) {
     .then(menu.close.bind(menu));
 };
 
-// var db = null;
+function addItem() {
+  var array = { "nome": $("#item").val() };
+  kk_storage.salvar(array);
+  fn.load('home.html');
 
-// //Parametros: transação e erro
-// function onError(tx, e) {
-//   alert("deu ruim " + e.message);
-// }
+};
 
-// function onSuccess(tx, e) {
-//   alert("deu bom ");
-// }
+function imprimirItens() {
+  var listaTarefas = kk_storage.getAll();
+  var lista = $("#lista");
+  lista.empty();
+  for (var i = 0; i < listaTarefas.length; i++) {
+      var item = listaTarefas[i];
+      var tarefa = $("<ons-list-item>" + item.nome + "<div class='right'><ons-button onclick='excluirItem(" + item.id + ")'><ons-icon icon ='trash'></ons-icons></ons-button></div></ons-list-item>");
+      lista.append(tarefa);
+  }
+}
+
+function excluirItem(id) {
+  kk_storage.excluir(id);
+  imprimirItens();
+}
+
+document.addEventListener("init", function (event) {
+  if (event.target.matches("#home")) {
+      imprimirItens();
+  }
+});
+
+

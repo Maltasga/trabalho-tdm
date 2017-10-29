@@ -15,10 +15,10 @@
             <ons-page>
                 <ons-list>
                     <ons-list-item onclick="fn.load('home.html')" tappable>
-                        Home
+                        Lista de Tarefas
                     </ons-list-item>
                     <ons-list-item onclick="fn.load('add.html')" tappable>
-                        Adicionar itens
+                        Adicionar Tarefas
                     </ons-list-item>
                 </ons-list>
             </ons-page>
@@ -27,7 +27,7 @@
     </ons-splitter>
 
     <template id="home.html">
-        <ons-page>
+        <ons-page id="home">
             <ons-toolbar>
                 <div class="left">
                     <ons-toolbar-button onclick="fn.open()">
@@ -35,23 +35,15 @@
                     </ons-toolbar-button>
                 </div>
                 <div class="center">
-                    Lista de compras
+                    Lista de Tarefas
                 </div>
             </ons-toolbar>
-            <!-- <ons-list id="lista">
+            <ons-list id="lista">
                 <ons-list-item>Item A</ons-list-item>
-                <ons-list-item>Item B</ons-list-item>
-            </ons-list> -->
-
-            <ons-list-item>
-                <div class="left">
-                    <ons-icon icon="md-face" class="list-item__icon"></ons-icon>
-                </div>
-                <div class="center">
-                    Icon
-                </div>
-            </ons-list-item>
-
+                <ons-list-item>Item B <div class="right"><ons-button><ons-icon icon ="trash">
+                </ons-icons></ons-button></div> </ons-list-item>
+                
+            </ons-list>
             <ons-fab position="bottom right" onclick="fn.load('add.html')">
                 <ons-icon icon="md-plus"></ons-icon>
             </ons-fab>
@@ -68,7 +60,7 @@
                     </ons-toolbar-button>
                 </div>
                 <div class="center">
-                    Adicionar itens
+                    Adicionar novas Tarefas
                 </div>
             </ons-toolbar>
 
@@ -84,6 +76,7 @@
         </ons-page>
     </template>
     <!-- Scripts -->
+    <script src="onsen/js/apiSessionStorage.js"></script>
     <script src="onsen/js/onsenui.min.js"></script>
     <script src="onsen/js/jquery.js"></script>
     <script src="onsen/js/app.js"></script>
